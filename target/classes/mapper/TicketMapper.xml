@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+       Copyright 2015-2019 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ear.core.mapper.TicketMapper">
+
+   <insert id="createdTicket">
+		INSERT INTO earomer1_db_solution.ticket(
+			ticket_status,
+			folio, 
+			badge, 
+			badge_smurfit, 
+			id_store, 
+			id_material, 
+			carrier, 
+			weight, 
+			weigth_ok, 
+			operator,
+			puch,
+			date,
+			observations,
+			code_status, 
+			created_at, 
+			modified_at) 
+		VALUES (
+			#{ticketRequest.statusTicket},
+			#{ticketRequest.folio}, 
+			#{ticketRequest.badge},
+			#{ticketRequest.badgeSmurfit},
+			#{ticketRequest.idStore},
+			#{ticketRequest.idMaterial},
+			#{ticketRequest.carrier},
+			#{ticketRequest.weight},
+			#{ticketRequest.weigthOk},
+			#{ticketRequest.operator},
+			#{ticketRequest.puch},
+			#{ticketRequest.date},
+			#{ticketRequest.observations},
+			'SYS001',
+			CURRENT_TIMESTAMP(),
+			CURRENT_TIMESTAMP())
+	</insert>
+		
+	<insert id="insertTicketForCalcutated">				
+	    INSERT INTO earomer1_db_solution.ticket_calculate ( 
+			id_ticket,
+			id_store,
+			id_material,
+			price,
+			date,
+			code_status, 
+			created_at, 
+			modified_at) 
+		VALUES ( 
+			#{calculatedTicketRequest.idTicket},
+		 	#{calculatedTicketRequest.idStore},
+		 	#{calculatedTicketRequest.idMaterial},
+		 	#{calculatedTicketRequest.priceCalculated},
+		 	#{calculatedTicketRequest.date},		 	
+		 	'SYS000',
+		 	CURRENT_TIMESTAMP(),
+		 	CURRENT_TIMESTAMP())  	 		 	
+	</insert>
+	
+	<resultMap id="getTicketsResult" type="com.ear.core.model.TicketModel">		
+		 <result column="id" property="id"/>
+		 <result column="ticket_status" property="ticketStatus"/>
+		 <result column="observations" property="observations"/>		 
+		 <result column="folio" property="folio"/>
+		 <result column="badge" property="badge"/>
+		 <result column="badge_smurfit" property="badgeSmurfit"/>
+		 <result column="id_store" property="idStore"/>
+		 <result column="code_store" property="codeStore"/>
+		 <result column="name_store" property="nameStore"/>
+		 <result column="id_material" property="idMaterial"/>		 
+		 <result column="code_material" property="codeMaterial"/>		 
+		 <result column="name_material" property="nameMaterial"/>
+		 <result column="carrier" property="carrier"/>
+		 <result column="weight" property="weight"/>
+		 <result column="weigth_ok" property="weigthOk"/>
+		 <result column="operator" property="operator"/>
+		 <result column="date" property="date"/>	
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/> 		 
+    </resultMap>	
+	    
+    <select id="getTickets" resultMap="getTicketsResult">
+		SELECT 
+			b.id,
+			b.ticket_status,
+			b.observations,
+			b.folio, 
+			b.badge, 
+			b.badge_smurfit, 
+			b.id_store,
+			a.code as code_store,
+			a.name as name_store,
+			b.id_material,
+			c.code as code_material,
+			c.name as name_material,
+			b.carrier, 
+			b.weight, 
+			b.weigth_ok, 
+			b.operator, 
+			b.date,
+			b.code_status, 
+			b.created_at, 
+			b.modified_at            
+		FROM earomer1_db_solution.store a
+		RIGHT OUTER JOIN earomer1_db_solution.ticket b
+		ON a.id = b.id_store
+		LEFT OUTER JOIN earomer1_db_solution.material c
+		ON c.id = b.id_material
+		ORDER BY b.date DESC
+	</select>
+	
+	<resultMap id="getTicketResult" type="com.ear.core.model.TicketModel">		
+		 <result column="id" property="id"/>
+		 <result column="folio" property="folio"/>
+		 <result column="badge" property="badge"/>
+		 <result column="badge_smurfit" property="badgeSmurfit"/>
+		 <result column="id_store" property="idStore"/>
+		 <result column="id_material" property="idMaterial"/>
+		 <result column="carrier" property="carrier"/>
+		 <result column="weight" property="weight"/>
+		 <result column="weigth_ok" property="weigthOk"/>
+		 <result column="operator" property="operator"/>
+		 <result column="date" property="date"/>		 
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/> 		 
+    </resultMap>	
+	    
+    <select id="getTicket" resultMap="getTicketResult">
+		SELECT
+			id,
+			folio, 
+			badge, 
+			badge_smurfit, 
+			id_store, 
+			id_material, 
+			carrier, 
+			weight, 
+			weigth_ok, 
+			operator, 
+			date, 
+			code_status, 
+			created_at, 
+			modified_at
+		FROM
+			earomer1_db_solution.ticket
+		WHERE id = #{idTicket}
+		AND code_status = 'SYS001'
+	</select>
+	
+	<resultMap id="getPricesForCalculatedResult" type="com.ear.core.model.PriceMaterialModel">		
+		 <result column="id" property="idPrice"/>
+		 <result column="id_store" property="idStore"/>
+		 <result column="id_material" property="idMaterial"/>
+		 <result column="id_unit" property="idUnit"/>
+		 <result column="date" property="date"/>
+		 <result column="price" property="price"/>
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/>	 
+    </resultMap>
+    
+	<select id="getPricesForCalculated" resultMap="getPricesForCalculatedResult">
+		SELECT
+			id, 
+			id_store, 
+			id_material, 
+			id_unit, 
+			date, 
+			price, 
+			code_status, 
+			created_at, 
+			modified_at
+	    FROM earomer1_db_solution.store_price_material
+		WHERE id_store = #{calculatedTicketRequest.idStore}
+		AND id_material = #{calculatedTicketRequest.idMaterial}
+		AND code_status = 'SYS001'
+	</select>
+	
+	<select id="getPriceCalculated" resultType="java.util.Date">
+		SELECT 
+			price as price_calculate
+		FROM
+		    earomer1_db_solution.ticket_calculate
+		WHERE id = 1
+		AND code_status = 'SYS001'
+	</select>
+	
+	<select id="getIdTicket" resultType="java.lang.Integer">
+		SELECT 
+			MAX(id) as id
+		FROM
+		    earomer1_db_solution.ticket
+	</select>
+		
+	<update id="updatePriceCalcutatedTicket">
+     	UPDATE earomer1_db_solution.ticket_calculate
+     	SET price = #{calculatedTicketRequest.priceCalculated}, code_status = 'SYS001', modified_at = CURRENT_TIMESTAMP()
+		WHERE id_ticket = #{calculatedTicketRequest.idTicket}
+		AND id_store = #{calculatedTicketRequest.idStore}
+		AND id_material = #{calculatedTicketRequest.idMaterial}
+		AND date = #{calculatedTicketRequest.date}
+		AND code_status = 'SYS000'
+	</update>
+	
+	<update id="validateTicket">
+		UPDATE earomer1_db_solution.ticket
+		SET code_status = #{ticketRequest.codeStatus}
+		WHERE id = #{ticketRequest.idTicket}
+	</update>
+	
+	<resultMap id="getPriceForCalculatedResult" type="com.ear.core.model.PriceMaterialModel">		
+		 <result column="id" property="idPrice"/>
+		 <result column="id_store" property="idStore"/>
+		 <result column="id_material" property="idMaterial"/>
+		 <result column="id_unit" property="idUnit"/>
+		 <result column="date" property="date"/>
+		 <result column="price" property="price"/>
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/>	 
+    </resultMap>
+    
+	<select id="getPriceForCalculated" resultMap="getPriceForCalculatedResult">
+		SELECT
+			id, 
+			id_store, 
+			id_material, 
+			id_unit, 
+			date, 
+			price, 
+			code_status, 
+			created_at, 
+			modified_at
+	    FROM earomer1_db_solution.store_price_material
+		WHERE id_store = #{calculatedTicketRequest.idStore}
+		AND id_material = #{calculatedTicketRequest.idMaterial}
+		AND date = #{calculatedTicketRequest.date}
+		AND code_status = 'SYS001'
+	</select>
+	
+	<select id="getFolioTicket" resultType="java.lang.String">
+		SELECT 
+			folio
+		FROM
+		    earomer1_db_solution.ticket
+		WHERE id = #{idTicket}
+	</select>
+	
+	<delete id="deletedTicket">
+		DELETE FROM earomer1_db_solution.ticket
+		WHERE id = #{idTicket}
+	</delete>
+	
+</mapper>

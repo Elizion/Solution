@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "02c103d9-5c90-4e0e-98c0-c664326e3184",
+		"name": "SOLUTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13970381"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2x1dGlvbiIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiZWFyb21lcm9AaW5kcmFjb21wYW55LmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSLFVTRVJfTElTVCxST0xFX0FETUlOLFJPTEVfUk9PVCxVU0VSX0FERCxVU0VSX0VESVQiLCJpYXQiOjE2NTc5MTA0MzMsImV4cCI6MTY1Nzk0MDQzM30.znBogfQLGtqK-L2FfgmOOpjTGh1Hy-7VbNjmXo_goiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dummy\",\r\n    \"lastName\": \"Dummy Dummy\",\r\n    \"email\": \"dummy@indracompany.com\",\r\n    \"phone\": \"5588888888\",\r\n    \"gender\": true,\r\n    \"bornDate\": \"1994-03-18\",\r\n    \"isEnabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/created",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"created"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "dummy@indracompany.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Q<\\eGTc^S@~",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/session/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"session",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario por email",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2x1dGlvbiIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiZHVtbXlAaW5kcmFjb21wYW55LmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSLFVTRVJfTElTVCIsImlhdCI6MTY1NzkwODMzMCwiZXhwIjoxNjU3OTM4MzMwfQ.sUgyRbuZXc0yElt8ABTWR9dR-I6V53oMpCSLPiErkto",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/get?email=dummy@indracompany.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"get"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "dummy@indracompany.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ws01.cenace.gob.mx:8082/SWPEND/SIM/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2x1dGlvbiIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiZHVtbXlAaW5kcmFjb21wYW55LmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSLFVTRVJfTElTVCIsImlhdCI6MTY1NzkwODMzMCwiZXhwIjoxNjU3OTM4MzMwfQ.sUgyRbuZXc0yElt8ABTWR9dR-I6V53oMpCSLPiErkto",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/pend/get?sistema=SIN&proceso=MDA&listaZonaCarga=ACAPULCO,AGUASCALIENTES&anoInicio=2017&mesInicio=01&diaInicio=20&anoFin=2017&mesFin=01&diaFin=20&formato=JSON&timezone=America/Mexico_City",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pend",
+						"get"
+					],
+					"query": [
+						{
+							"key": "sistema",
+							"value": "SIN"
+						},
+						{
+							"key": "proceso",
+							"value": "MDA"
+						},
+						{
+							"key": "listaZonaCarga",
+							"value": "ACAPULCO,AGUASCALIENTES"
+						},
+						{
+							"key": "anoInicio",
+							"value": "2017"
+						},
+						{
+							"key": "mesInicio",
+							"value": "01"
+						},
+						{
+							"key": "diaInicio",
+							"value": "20"
+						},
+						{
+							"key": "anoFin",
+							"value": "2017"
+						},
+						{
+							"key": "mesFin",
+							"value": "01"
+						},
+						{
+							"key": "diaFin",
+							"value": "20"
+						},
+						{
+							"key": "formato",
+							"value": "JSON"
+						},
+						{
+							"key": "timezone",
+							"value": "America/Mexico_City"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ws01.cenace.gob.mx:8082/SWPML/SIM/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2x1dGlvbiIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoiZHVtbXlAaW5kcmFjb21wYW55LmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSLFVTRVJfTElTVCIsImlhdCI6MTY1NzkwODMzMCwiZXhwIjoxNjU3OTM4MzMwfQ.sUgyRbuZXc0yElt8ABTWR9dR-I6V53oMpCSLPiErkto",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/pml/get?sistema=SIN&proceso=MDA&listaZonaCarga=01PLO-115,01AAN-85&anoInicio=2017&mesInicio=11&diaInicio=07&anoFin=2017&mesFin=11&diaFin=07&formato=JSON&timezone=America/Mexico_City",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pml",
+						"get"
+					],
+					"query": [
+						{
+							"key": "sistema",
+							"value": "SIN"
+						},
+						{
+							"key": "proceso",
+							"value": "MDA"
+						},
+						{
+							"key": "listaZonaCarga",
+							"value": "01PLO-115,01AAN-85"
+						},
+						{
+							"key": "anoInicio",
+							"value": "2017"
+						},
+						{
+							"key": "mesInicio",
+							"value": "11"
+						},
+						{
+							"key": "diaInicio",
+							"value": "07"
+						},
+						{
+							"key": "anoFin",
+							"value": "2017"
+						},
+						{
+							"key": "mesFin",
+							"value": "11"
+						},
+						{
+							"key": "diaFin",
+							"value": "07"
+						},
+						{
+							"key": "formato",
+							"value": "JSON"
+						},
+						{
+							"key": "timezone",
+							"value": "America/Mexico_City"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

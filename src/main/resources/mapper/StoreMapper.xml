@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+       Copyright 2015-2019 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ear.core.mapper.StoreMapper">
+    
+    <resultMap id="getListStoreResult" type="com.ear.core.model.StoreModel">		
+		 <result column="id" property="id"/>
+		 <result column="id_chain" property="idChain"/>
+		 <result column="name_chain" property="nameChain"/>
+		 <result column="id_store_type" property="idStoreType"/>
+		 <result column="name_store_type" property="nameStoreType"/>
+		 <result column="determinant" property="determinant"/>
+		 <result column="name" property="name"/>
+		 <result column="code" property="code"/>	 
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/> 		 
+    </resultMap>	
+	    
+    <select id="getListStore" resultMap="getListStoreResult">
+		SELECT
+			a.id, 
+			a.id_chain,
+            c.name as name_chain,
+            a.id_store_type,
+            b.name as name_store_type,
+            a.determinant,
+			a.name,
+			a.code,
+			a.code_status, 
+			a.created_at, 
+			a.modified_at
+		FROM
+			earomer1_db_solution.store a,
+            earomer1_db_solution.store_type b,
+            earomer1_db_solution.chain c
+		WHERE a.id_store_type = b.id
+        AND a.id_chain = c.id
+        AND a.code_status IN ('SYS000','SYS001')
+		ORDER BY a.code_status DESC, a.id_chain, a.id_store_type
+	</select>
+	
+	<resultMap id="getStoreMaterialPricesResult" type="com.ear.core.model.PriceMaterialModel">		
+		 <result column="id_price" 		  property="idPrice"/>
+		 <result column="id_store" 		  property="idStore"/>
+		 <result column="id_store_type"   property="idStoreType"/>
+		 <result column="name_store" 	  property="nameStore"/>
+		 <result column="name_store_type" property="nameStoreType"/>
+		 <result column="id_material" 	  property="idMaterial"/>
+		 <result column="name_material"   property="nameMaterial"/>
+		 <result column="name_chain"   	  property="nameChain"/>
+		 <result column="id_unit" 		  property="idUnit"/>
+		 <result column="name_unit" 	  property="nameUnit"/>
+		 <result column="date" 			  property="date"/> 	
+		 <result column="price" 		  property="price"/> 		 
+    </resultMap>	
+	    
+    <select id="getStoreMaterialPrices" resultMap="getStoreMaterialPricesResult">
+		SELECT
+			a.id as id_price, 
+		    d.id as id_store,
+		    a.id_store_type, 
+            e.name as name_store_type,
+		    d.name as name_store, 
+		    b.id as id_material, 
+		    b.name as name_material, 
+		    f.name as name_chain, 
+		    c.id as id_unit, 
+		    c.name as name_unit, 
+			a.date, 
+		    a.price 
+		FROM earomer1_db_solution.store_price_material a,
+					  earomer1_db_solution.material b,
+		              earomer1_db_solution.unit c,
+		              earomer1_db_solution.store d,
+                      earomer1_db_solution.store_type e,
+                      earomer1_db_solution.chain f
+		WHERE a.id_store = #{idStore}
+		AND a.id_store = d.id
+		AND a.id_material = b.id
+		AND a.id_unit = c.id
+        AND a.id_store_type = e.id
+        AND d.id_chain = f.id
+		AND a.code_status IN ('SYS001','SYS000')
+		AND a.code_status IN ('SYS001','SYS000')
+		AND b.code_status IN ('SYS001','SYS000')
+		AND d.code_status IN ('SYS001','SYS000')
+		AND a.code_status IN ('SYS001','SYS000')
+		ORDER BY a.date DESC		
+	</select>
+		
+	<select id="getIdStore" resultType="java.lang.Integer">
+		SELECT id FROM earomer1_db_solution.store
+		WHERE name = #{nameStore}
+		AND code = #{code}
+	</select>
+	
+	<select id="getIdStoreType" resultType="java.lang.Integer">
+		SELECT id FROM earomer1_db_solution.store_type
+		WHERE name =  #{nameStoreType}
+	</select>
+
+	<select id="updateDeterminant">
+		UPDATE earomer1_db_solution.store
+		SET determinant = #{determinant}
+		WHERE code = #{code}
+		AND name = #{name}
+	</select>
+		
+	<select id="updateNameStore">
+		UPDATE earomer1_db_solution.store
+		SET name = #{nameUpdate}
+		WHERE id = #{id}
+	</select>
+	
+	<resultMap id="getStoreByCodeResult" type="com.ear.core.model.StoreModel">		
+		 <result column="id" 			property="id"/>
+		 <result column="id_chain" 		property="idChain"/>
+		 <result column="id_store_type" property="idStoreType"/>
+		 <result column="determinant" 	property="determinant"/>
+		 <result column="name" 			property="name"/>
+		 <result column="code" 			property="code"/>
+		 <result column="code_status" 	property="codeStatus"/>
+		 <result column="created_at" 	property="createdAt"/>
+		 <result column="modified_at" 	property="modifiedAt"/> 		 
+    </resultMap>	
+    
+	<select id="getStoreByCode" resultMap="getStoreByCodeResult">
+		SELECT 
+			id, 
+			id_chain, 
+			id_store_type, 
+			determinant, 
+			name, 
+			code, 
+			code_status, 
+			created_at, 
+			modified_at 
+		FROM earomer1_db_solution.store
+		WHERE code = #{code}
+	</select>	
+	
+	<resultMap id="getStoreTypesResult" type="com.ear.core.model.StoreTypeModel">		
+		 <result column="id" 			property="id"/>
+		 <result column="name" 			property="name"/>	 
+    </resultMap>	
+    
+	<select id="getStoreTypes" resultMap="getStoreTypesResult">
+		SELECT 
+			id, 
+			name
+		FROM earomer1_db_solution.store_type
+		WHERE code_status = 'SYS001'
+	</select>
+
+	<select id="getIdStoreByCode" resultType="java.lang.Integer">
+		SELECT id FROM earomer1_db_solution.store
+		WHERE code = #{codeStore}
+	</select>
+	
+</mapper>

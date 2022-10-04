@@ -1,0 +1,120 @@
+2022-07-19 00:49:45 INFO  UserServiceImpl:113 - Correo generado earomero@indracompany.com
+2022-07-19 00:49:45 WARN  UserServiceImpl:114 - Contraseña por default generada +NLTm0>$pE8
+2022-07-19 00:49:45 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-19 00:49:45 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-19 00:49:45 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+#############################################################################################################################
+2022-07-19 12:13:55 INFO  UserServiceImpl:113 - Correo generado jmroque@indracompany.com
+2022-07-19 12:13:55 WARN  UserServiceImpl:114 - Contraseña por default generada '4jU..{)1Xe
+2022-07-19 12:13:55 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-19 12:13:55 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-19 12:13:55 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-19 12:15:13 INFO  UserServiceImpl:113 - Correo generado etorres@indracompany.com
+2022-07-19 12:15:13 WARN  UserServiceImpl:114 - Contraseña por default generada Yf>piY7CmrM
+2022-07-19 12:15:13 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-19 12:15:13 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-19 12:15:13 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-19 12:16:58 INFO  UserServiceImpl:113 - Correo generado grodriguezp@indracompany.com
+2022-07-19 12:16:58 WARN  UserServiceImpl:114 - Contraseña por default generada C~}/R5B="vy
+2022-07-19 12:16:58 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-19 12:16:58 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-19 12:16:58 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:29:48 INFO  UserServiceImpl:113 - Correo generado dmontes@indracompany.com
+2022-07-26 22:29:48 WARN  UserServiceImpl:114 - Contraseña por default generada i%E%_Su)g|5
+2022-07-26 22:29:48 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:29:48 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:29:48 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:33:43 INFO  UserServiceImpl:113 - Correo generado demo@indracompany.com
+2022-07-26 22:33:43 WARN  UserServiceImpl:114 - Contraseña por default generada |jg7^K+:+&w
+2022-07-26 22:33:43 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:33:43 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:33:43 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:36:02 INFO  UserServiceImpl:113 - Correo generado demo1@indracompany.com
+2022-07-26 22:36:02 WARN  UserServiceImpl:114 - Contraseña por default generada d+:=-w`*$QR
+2022-07-26 22:36:02 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:36:02 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:36:02 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:39:12 INFO  UserServiceImpl:113 - Correo generado demo2@indracompany.com
+2022-07-26 22:39:12 WARN  UserServiceImpl:114 - Contraseña por default generada Z+(D:ThFx\S
+2022-07-26 22:39:12 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:39:12 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:39:12 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:39:13 ERROR ActivityController:37 - nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='activityRequest.idUser', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+2022-07-26 22:45:25 INFO  UserServiceImpl:113 - Correo generado demo3@indracompany.com
+2022-07-26 22:45:25 WARN  UserServiceImpl:114 - Contraseña por default generada [JtF"{zx&~Q
+2022-07-26 22:45:25 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:45:25 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:45:25 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:49:47 INFO  UserServiceImpl:113 - Correo generado demo4@indracompany.com
+2022-07-26 22:49:47 WARN  UserServiceImpl:114 - Contraseña por default generada tj1DsPikeu/
+2022-07-26 22:49:47 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:49:47 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:49:47 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:49:47 ERROR ActivityController:37 - nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='activityRequest.idUser', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+2022-07-26 22:57:17 INFO  UserServiceImpl:113 - Correo generado demo5@indracompany.com
+2022-07-26 22:57:17 WARN  UserServiceImpl:114 - Contraseña por default generada "2Fq\>i~9bs
+2022-07-26 22:57:17 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-26 22:57:17 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-26 22:57:17 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-26 22:58:32 ERROR ActivityController:37 - nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='activityRequest.idUser', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+2022-07-27 10:25:28 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-07-27 10:26:36 INFO  UserServiceImpl:113 - Correo generado demo6@indracompany.com
+2022-07-27 10:26:36 WARN  UserServiceImpl:114 - Contraseña por default generada ,%f;C]X);\p
+2022-07-27 10:26:36 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-27 10:26:36 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-07-27 10:26:36 INFO  UserServiceImpl:117 - Imagen por default generada src/main/resources/static/images/user_default.jpg
+2022-07-27 10:26:36 ERROR ActivityController:37 - nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='activityRequest.idUser', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #4 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+2022-07-27 10:28:39 INFO  UserServiceImpl:113 - Correo generado demo7@indracompany.com
+2022-07-27 10:28:39 WARN  UserServiceImpl:114 - Contraseña por default generada ^_lz(]^l)6C
+2022-07-27 10:28:39 INFO  UserServiceImpl:115 - Rol por default generado ROLE_USER
+2022-07-27 10:28:39 INFO  UserServiceImpl:116 - Permiso por default generado USER_LIST
+2022-08-01 20:19:45 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-01 21:35:35 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-01 23:36:52 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 00:15:23 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 00:34:26 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 16:22:02 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 21:38:38 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:22:06 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:23:46 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:24:32 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:24:50 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:26:52 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:29:03 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:29:51 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:31:37 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:32:02 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:33:44 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:34:14 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:34:47 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:35:30 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:35:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:41:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:47:28 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:49:30 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:50:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:55:02 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:55:08 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:56:01 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 22:59:09 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:01:32 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:07:01 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:11:45 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:11:51 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:14:08 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:14:44 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:18:28 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:19:53 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:20:11 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-02 23:36:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-03 11:14:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-03 11:49:07 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-03 23:05:58 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-03 23:45:58 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 04:49:21 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 04:49:55 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 04:50:00 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-03 23:53:30 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 03:11:57 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 03:19:22 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión
+2022-08-04 03:20:07 INFO  SessionController:37 - El usuario con correo earomero@indracompany.com ha iniciado sesión

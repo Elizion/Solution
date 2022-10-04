@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+       Copyright 2015-2019 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ear.core.mapper.InvoiceMapper">
+	
+	<insert id="createdInvoiceFromExcel">				
+	    INSERT INTO earomer1_db_solution.invoice_excel (
+			section, 
+			folio_ticket, 
+			code_store, 
+			location, 
+			customer, 
+			material, 
+			plant, 
+			aml, 
+			date_collection, 
+			quantity, 
+			price, 
+			number_invoice, 
+			code_status, 
+			created_at, 
+			modified_at) 
+		VALUES ( 
+			#{invoiceExcelRequest.section},
+			#{invoiceExcelRequest.folioTicket},
+			#{invoiceExcelRequest.codeStore},
+			#{invoiceExcelRequest.location},
+			#{invoiceExcelRequest.customer},
+			#{invoiceExcelRequest.material},
+			#{invoiceExcelRequest.plant},
+			#{invoiceExcelRequest.aml},
+			#{invoiceExcelRequest.dateCollection},
+			#{invoiceExcelRequest.quantity},
+			#{invoiceExcelRequest.price},
+			#{invoiceExcelRequest.numberInvoice}, 	
+		 	'SYS001',
+		 	CURRENT_TIMESTAMP(),
+		 	CURRENT_TIMESTAMP())  	 		 	
+	</insert>
+	
+	<resultMap id="getFoliosInvoiceResult" type="com.ear.core.model.InvoiceExcelModel">		
+		 <result column="id" property="id"/>
+		 <result column="section" property="section"/>
+		 <result column="folio_ticket" property="folioTicket"/>
+		 <result column="code_store" property="codeStore"/>
+		 <result column="location" property="location"/>
+		 <result column="customer" property="customer"/>
+		 <result column="material" property="material"/>
+		 <result column="plant" property="plant"/>
+		 <result column="aml" property="aml"/>
+		 <result column="date_collection" property="dateCollection"/>
+		 <result column="quantity" property="quantity"/>
+		 <result column="price" property="price"/>
+		 <result column="number_invoice" property="numberInvoice"/>		 
+		 <result column="code_status" property="codeStatus"/>
+		 <result column="created_at" property="createdAt"/>
+		 <result column="modified_at" property="modifiedAt"/> 		 
+    </resultMap>	
+	    
+    <select id="getFoliosInvoice" resultMap="getFoliosInvoiceResult">
+		SELECT
+			id, 
+			section, 
+			folio_ticket, 
+			code_store, 
+			location, 
+			customer, 
+			material, 
+			plant, 
+			aml, 
+			date_collection, 
+			quantity, 
+			price, 
+			number_invoice, 
+			code_status, 
+			created_at, 
+			modified_at
+		FROM
+			earomer1_db_solution.invoice_excel
+		WHERE folio_ticket = #{folioTicket}
+	</select>
+	
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+       Copyright 2015-2019 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ear.core.mapper.MaterialMapper">
+	
+	<resultMap id="getMaterialsResult" type="com.ear.core.model.MaterialModel">		
+		 <result column="id" 			property="id"/>
+		 <result column="name" 			property="name"/>
+		 <result column="code_status" 	property="codeStatus"/>
+		 <result column="created_at" 	property="createdAt"/>
+		 <result column="modified_at" 	property="modifiedAt"/>	 
+    </resultMap>
+	    
+    <select id="getMaterials" resultMap="getMaterialsResult">
+		SELECT 
+			id, 
+		    name, 
+		    code_status, 
+		    created_at, 
+		    modified_at 
+		FROM earomer1_db_solution.material
+		WHERE code_status = 'SYS001'
+	</select>	
+		
+	<resultMap id="getUnitsResult" type="com.ear.core.model.UnitModel">		
+		 <result column="id" 			property="id"/>
+		 <result column="name" 			property="name"/>
+		 <result column="abbreviation" 	property="abbreviation"/>
+		 <result column="code_status" 	property="codeStatus"/>
+		 <result column="created_at" 	property="createdAt"/>
+		 <result column="modified_at" 	property="modifiedAt"/>	 
+    </resultMap>
+	    
+    <select id="getUnits" resultMap="getUnitsResult">
+		SELECT 
+			id, 
+			name, 
+			abbreviation, 
+			code_status, 
+			created_at, 
+			modified_at
+		FROM earomer1_db_solution.unit
+		WHERE code_status = 'SYS001'
+	</select>	
+	
+	<insert id="createStorePrice">				
+	    INSERT INTO earomer1_db_solution.store_price_material (
+			id_store, 
+			id_material, 
+			id_unit,
+			id_store_type,
+			date, 
+			price, 
+			code_status, 
+			created_at, 
+			modified_at) 
+		VALUES ( 
+			#{storePriceRequest.idStore},
+			#{storePriceRequest.idMaterial},
+		 	#{storePriceRequest.idUnit},
+		 	#{storePriceRequest.idStoreType},
+		 	#{storePriceRequest.date},
+		 	#{storePriceRequest.price},		 	
+		 	'SYS001',
+		 	CURRENT_TIMESTAMP(),
+		 	CURRENT_TIMESTAMP())  	 		 	
+	</insert>
+	
+	<select id="getIdMaterial" resultType="java.lang.Integer">
+		SELECT id FROM earomer1_db_solution.material
+		WHERE name = #{nameMaterial}
+	</select>
+	
+</mapper>
