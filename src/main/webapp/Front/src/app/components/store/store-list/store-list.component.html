@@ -1,0 +1,311 @@
+<div class="wrapper">
+    
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        
+        <app-header></app-header>
+
+
+        <main class="content">
+
+            <div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Panel</strong> Tiendas</h1>
+
+					<div class="row">
+
+						<div class="col-12 col-lg-12 col-xxl-12 d-flex">
+							
+							<div class="card flex-fill">
+								
+								<div class="card-header">
+									<h5 class="card-title mb-0">Lista</h5>
+								</div>
+								
+								<table class="table table-hover my-0">
+
+									<thead>
+										<tr>
+											<th class="d-none d-md-table-cell"> # </th>
+											<th class="d-none d-md-table-cell"> Cadena </th>
+											<th class="d-none d-md-table-cell"> Tipo </th>									
+											<th class="d-none d-md-table-cell"> Tienda </th>
+											<th class="d-none d-md-table-cell"> Determinante </th>										
+											<th class="d-none d-md-table-cell"> Código </th>							
+											<th class="d-none d-md-table-cell"> Estado </th>
+                                            <th class="d-none d-md-table-cell"> Precio </th>
+                                            <th class="d-none d-md-table-cell"> Precio </th>
+											<th class="d-none d-md-table-cell"> Precio </th>
+											<!--<th class="d-none d-md-table-cell"> Eliminar </th>-->
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr *ngFor="let item of listStore; let i = index">
+											<td class="d-none d-md-table-cell">{{i+1}}</td>
+											<td class="d-none d-md-table-cell">{{item.nameChain}}</td>
+											<td class="d-none d-md-table-cell">{{item.nameStoreType}}</td>
+											<td class="d-none d-md-table-cell">{{item.name}}</td>
+											<td class="d-none d-md-table-cell">{{item.determinant}}</td>
+                                            <td class="d-none d-md-table-cell">{{item.code}}</td>
+											<td><span [ngClass]="item.codeStatus === 'SYS001' ? 'badge bg-success' : 'badge bg-danger'">{{item.codeStatus === 'SYS001' ? 'Activo' : 'Inactivo'}}</span></td>											
+                                            <td><button class="btn btn-info" (click)='getStorePrices(item.id)' id="buttonGetStorePrices" data-bs-toggle="modal" data-bs-target="#getStorePrices"><i-feather name='eye'></i-feather></button></td>
+                                            <td><button class="btn btn-primary" (click)='getIdStore(item.id)' id="buttonCreatedStorePrice" data-bs-toggle="modal" data-bs-target="#createdStorePrice"><i-feather name='plus-square'></i-feather></button></td>
+											<td><button class="btn btn-secondary" (click)='getStorePrices(item.id)' id="buttonModifiedStorePrice" data-bs-toggle="modal" data-bs-target="#modifiedStorePrice"><i-feather name='edit'></i-feather></button></td>
+											<!--<td><button class="btn btn-danger" (click)='getStorePrices(item.id)' id="buttonDeletedStorePrice" data-bs-toggle="modal" data-bs-target="#deletedStorePrice"><i-feather name='dollar-sign'></i-feather></button></td>-->
+										</tr>
+									</tbody>
+
+								</table>
+
+							</div>
+ 
+						</div>
+                        
+					</div>
+
+				</div>
+  
+                <!-- Modal ver -->
+				<div class="modal fade" id="getStorePrices" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Ver precios </h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							
+							<div class="modal-body">
+
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>										
+											<th class="d-none d-md-table-cell"> Cadena </th>
+											<th class="d-none d-md-table-cell"> Tipo </th>
+											<th class="d-none d-md-table-cell"> Tienda </th>										
+											<th class="d-none d-md-table-cell"> Material </th>
+											<th class="d-none d-md-table-cell"> Fecha </th>										
+											<th class="d-none d-md-table-cell"> Precio </th>	
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of storePrices; let i = index">
+											<td class="d-none d-md-table-cell">{{ item.nameChain }}</td>
+											<td class="d-none d-md-table-cell">{{ item.nameStoreType }}</td>
+											<td class="d-none d-md-table-cell">{{ item.nameStore }}</td>										
+											<td class="d-none d-md-table-cell">{{ item.nameMaterial }}</td>
+											<td class="d-none d-md-table-cell">{{ item.date }}</td>
+											<td class="d-none d-md-table-cell">{{ item.price }}</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+                <!-- Modal crear -->
+				<div class="modal fade" id="createdStorePrice" tabindex="-1" aria-labelledby="exampleModalLabel_1" aria-hidden="true">
+                    
+					<div class="modal-dialog">
+
+						<div class="modal-content">
+
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel_1">Crear precio</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+
+							<div class="modal-body">
+
+								<form>
+
+									<div class="card">
+					
+									<div class="card-body">
+										
+										<div class="mb-3">
+											<label class="form-label"> Fecha </label>
+											<input class="form-control form-control-sm"
+											type="date"
+											name="date"
+											id="date"
+											[(ngModel)]="date">
+										</div>
+					
+										<div class="mb-3">
+											<label class="form-label"> Precio </label>
+											<input
+											class="form-control form-control-sm"
+											type="number"
+											name="price"
+											id="price"
+											[(ngModel)]="price">
+										</div>
+
+										<div class="mb-3">
+											<label> Tipo de tienda </label>
+											<select name="material" [ngModel]="selectedIdStoreType" (ngModelChange)="storeTypeChanged($event)" class="form-select form-control-sm">
+											<option *ngFor="let item of storeTypes" [value]="item.id">
+												{{ item.name }}
+											</option>
+											</select>
+										</div>
+
+										<div class="mb-3">
+											<label> Material </label>
+											<select name="material" [ngModel]="selectedIdMaterial" (ngModelChange)="materialChanged($event)" class="form-select form-control-sm">
+											<option *ngFor="let item of materials" [value]="item.id">
+												{{ item.name }}
+											</option>
+											</select>
+										</div>
+
+										<div class="mb-3">
+											<label> Unidad </label>
+											<select name="unit" [ngModel]="selectedIdMaterial" (ngModelChange)="unitChanged($event)" class="form-select form-control-sm" [disabled]="true">
+											<option *ngFor="let item of units" [value]="item.id">
+												{{ item.name }}
+											</option>
+											</select>
+										</div>
+
+									</div>
+					
+									</div>
+									
+								</form>
+
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+								<button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='createdStorePrice()' > Crear </button>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- Modal modificar -->
+				<div class="modal fade" id="modifiedStorePrice" tabindex="-1" aria-labelledby="exampleModalLabel_3" aria-hidden="true">
+					
+					<div class="modal-dialog modal-xl">
+
+						<div class="modal-content">
+
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel_3"> Precios </h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+
+							<div class="modal-body">
+								
+								<table class="table table-hover my-0">
+
+									<thead>
+										<tr>										
+											<th class="d-none d-md-table-cell"> Id </th>
+											<th class="d-none d-md-table-cell"> Cadena </th>
+											<th class="d-none d-md-table-cell"> Tipo </th>
+											<th class="d-none d-md-table-cell"> Tienda </th>										
+											<th class="d-none d-md-table-cell"> Material </th>
+											<th class="d-none d-md-table-cell"> Fecha </th>										
+											<th class="d-none d-md-table-cell"> Precio </th>
+											<th class="d-none d-md-table-cell"> Editar </th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<tr *ngFor="let item of storePrices; let i = index">
+											<td class="d-none d-md-table-cell">{{ item.idPrice }}</td>
+											<td class="d-none d-md-table-cell">{{ item.nameChain }}</td>
+											<td class="d-none d-md-table-cell">{{ item.nameStoreType }}</td>
+											<td class="d-none d-md-table-cell">{{ item.nameStore }}</td>										
+											<td class="d-none d-md-table-cell">{{ item.nameMaterial }}</td>
+											<td class="d-none d-md-table-cell">{{ item.date }}</td>
+											<td class="d-none d-md-table-cell">                                   											
+												<input class="form-control form-control-sm" type="number" name="price_edit" id="price_edit_{{i}}" [(ngModel)]="item.price">											
+											</td>
+											<td><button (click)='modifiedStorePrice(item)' class="btn btn-success"><i-feather name='check'></i-feather></button></td>
+										</tr>
+									</tbody>
+
+								</table>
+
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				
+				<!-- Modal eliminar -->
+				<div class="modal fade" id="deletedStorePrice" tabindex="-1" aria-labelledby="exampleModalLabel_4" aria-hidden="true">
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel_4"> Precios </h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							
+							<table class="table table-hover my-0">
+								<thead>
+									<tr>										
+										<th class="d-none d-md-table-cell"> Fecha </th>										
+										<th class="d-none d-md-table-cell"> Precio </th>								
+										<th class="d-none d-md-table-cell"> Modificar </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let item of storePrices; let i = index">
+										<td class="d-none d-md-table-cell">{{item.date}}</td>
+										<td class="d-none d-md-table-cell">                                   
+											
+											<input class="form-control form-control-lg"
+                                            type="number"
+                                            name="price_edit"
+                                            id="price_edit_{{i}}"
+                                            [(ngModel)]="item.price">
+											
+										</td>
+										<td><button class="btn btn-success"><i-feather name='check'></i-feather></button></td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						</div>
+					</div>
+					</div>
+				</div>
+
+        </main>
+
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

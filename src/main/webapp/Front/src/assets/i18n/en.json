@@ -1,0 +1,13 @@
+{
+  "INIT_SIGNIN":"Sign in to continue",
+  "EMAIL":"Email",
+  "PASSWORD":"Password",
+  "FORGET_PASSWORD": "Did you forget your password?",
+  "START": "Start",
+  "ROLE_ADMIN": "Administrator",
+  "ROLE_USER": "User",
+  "ROLE_ROOT": "Super administrator",
+  "USER_LIST": "List",
+  "USER_ADD": "Add",
+  "USER_EDIT": "Edit"
+}

@@ -1,0 +1,147 @@
+<div class="wrapper">
+    
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        
+        <app-header></app-header>
+
+
+        <main class="content">
+
+            <div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+
+					<div class="row">
+
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+							
+							<div class="card flex-fill w-100">
+								
+								<div class="card-header">
+									<h5 class="card-title mb-0">Uso del sistema</h5>
+								</div>
+								
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">											
+											<div class="align-self-center chart chart-lg">
+												<canvas baseChart width="400" height="400"													 
+													[data]="pieChartData" 
+													[labels]="pieChartLabels" 
+													[chartType]="pieChartType"
+													[options]="pieChartOptions" 
+													[plugins]="pieChartPlugins" 
+													[colors]="pieChartColors" 
+													[legend]="pieChartLegend">
+												</canvas>
+											</div>                                                
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Tiempo Real</h5>
+								</div>
+								<div class="card-body px-4">
+									<div class="align-self-center chart chart-lg">
+										<canvas baseChart
+											[datasets]="bubbleChartData"
+											[options]="bubbleChartOptions"
+											[legend]="bubbleChartLegend"
+											[chartType]="bubbleChartType">
+										</canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+							<div class="card flex-fill">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Soporte</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+                                        <div class="align-self-center chart chart-lg">
+                                            <canvas baseChart width="400" height="400"
+                                                [datasets]="radarChartData"
+                                                [options]="radarChartOptions"
+                                                [labels]="radarChartLabels"
+                                                [chartType]="radarChartType">
+                                            </canvas>
+                                        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+							<div class="card flex-fill">								
+								<div class="card-header">
+									<h5 class="card-title mb-0">Clientes</h5>
+								</div>
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th class="d-none d-xl-table-cell">Nombre</th>
+											<th class="d-none d-xl-table-cell">Email</th>
+											<th>Web</th>
+											<th class="d-none d-md-table-cell">Telefono</th>
+											<th>Estado</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of listFake; let i = index">
+											<td class="d-none d-xl-table-cell">{{item.name}}</td>
+											<td class="d-none d-xl-table-cell">{{item.email}}</td>
+											<td class="d-none d-md-table-cell">{{item.website}}</td>
+											<td class="d-none d-md-table-cell">{{item.phone}}</td>
+											<td><span class="badge bg-success">Activo</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Ventas Mensuales</h5>
+								</div>
+								<div class="card-body d-flex w-100">
+									<div class="py-3">
+										<div class="align-self-center chart chart-lg">
+											<canvas baseChart width="400" height="400"
+												[data]="doughnutChartData"
+												[labels]="doughnutChartLabels"
+												[chartType]="doughnutChartType">
+											</canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+
+        </main>
+
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

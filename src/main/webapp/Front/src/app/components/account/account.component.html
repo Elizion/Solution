@@ -1,0 +1,146 @@
+<div class="wrapper">
+    
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        
+        <app-header></app-header>
+
+        <main class="content">
+
+            <div class="container-fluid p-0">
+
+                <h1 class="h3 mb-3"><strong> Mi Cuenta </strong> Panel </h1>
+
+                <div class="row">
+                    
+                    <div class="col-md-4 col-xl-3">
+                        
+                        <div class="card mb-3">
+                            
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><i-feather name="award" class="feather-sm me-1"></i-feather>Datos</h5>
+                            </div>                            
+                            
+                            <hr class="my-0" />
+                            
+                            <div class="card-body text-center">          
+                                <div class="mb-3">      
+                                    <img [src]="'data:image/jpg;base64,'+userModel.picture" 
+                                        alt="avatar" 
+                                        class="img-fluid rounded-circle mb-2" 
+                                        width="100" 
+                                        height="100"/>                                                                                             
+                                </div>
+                                <h5 class="card-title mb-3">{{userModel.name}} {{userModel.lastName}}</h5>   
+
+                            </div>
+
+                            <hr class="my-0" />
+                            
+                            
+                            <div class="card-body">
+                                <h5 class="h6 card-title"><i-feather name="users" class="feather-sm me-1"></i-feather>Roles</h5>
+                                <p class="badge bg-info me-1 my-1" *ngFor="let authenticated of listAuthenticated" >                                     
+                                    {{ authenticated.name === 'ROLE_ROOT' ? 'Super administrador' : authenticated.name === 'ROLE_ADMIN' ? 'Administrador' :  authenticated.name === 'ROLE_USER' ? 'Usuario' : 'Usuario' }}
+                                </p>
+                            </div>
+
+                            <hr class="my-0" />
+
+                            <div class="card-body">
+                                <h5 class="h6 card-title"><i-feather name="unlock" class="feather-sm me-1"></i-feather>Permisos</h5>
+                                <p class="badge bg-info me-1 my-1" *ngFor="let authorized of listAuthorized"> 
+                                    {{ authorized.name === 'USER_LIST' ? 'Consultar' : authorized.name === 'USER_EDIT' ? 'Editar' :  authorized.name === 'USER_ADD' ? 'Agregar' : authorized.name === 'USER_DELETE' ? 'Eliminar' : 'Eliminar' }}
+                                </p>
+                            </div>
+
+                            <hr class="my-0" />
+                            
+                            <div class="card-body">
+                                <h5 class="h6 card-title"><i-feather name="mail" class="feather-sm me-1"></i-feather>Correo</h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-1"> <small class="text-muted"> {{ userModel.email }} </small> </li>
+                                </ul>
+                            </div>
+
+                            <hr class="my-0" />
+                            
+                            <div class="card-body">
+                                <h5 class="h6 card-title"> <i-feather name="phone" class="feather-sm me-1"></i-feather>Telefono</h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-1"> <small class="text-muted"> {{ userModel.phone }} </small> </li>
+                                </ul>
+                            </div>
+
+                            <hr class="my-0" />
+                            
+                            <div class="card-body">
+                                <h5 class="h6 card-title"> <i-feather name="map-pin" class="feather-sm me-1"></i-feather>Domicilio</h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-1"> <small class="text-muted"> 
+                                        <a href="https://goo.gl/maps/qEycSVjfe2mbwCmGA" target="_blank">      
+                                            Ver domicilio                               
+                                        </a>
+                                     </small> </li>
+                                </ul>
+                            </div>
+
+                            <hr class="my-0" />
+                        
+                            <div class="card-body">
+                                <h5 class="h6 card-title"> <i-feather name="map" class="feather-sm me-1"></i-feather>Zona</h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-1"> <small class="text-muted"> {{ timezone }} </small> </li>
+                                </ul>
+                            </div>
+                                                        
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-8 col-xl-9">
+                        
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Actividades</h5>
+                            </div>
+
+                            <div class="card-body h-100">
+
+                                <div class="" *ngFor="let activity of listActivity">
+
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            <small class="float-end text-navy">{{activity.title}}</small>
+                                            <strong>{{ activity.fullNameUser }}</strong> {{activity.message}} <br/>
+                                            <small class="text-muted">Fecha de actividad {{activity.dateString}}</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr/>
+                                    
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-info"> Ver más </a>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

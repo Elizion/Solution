@@ -1,0 +1,40 @@
+<div class="wrapper">
+    
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        
+        <app-header></app-header>
+
+        <main class="content">
+
+            <div class="container-fluid p-0">
+
+                <h1 class="h3 mb-3"><strong> Test </strong> Panel </h1>
+
+                <div class="row">
+
+                    <form #myform="ngForm" (ngSubmit)="register(myform)" class="form form-register">
+                    
+                        <label for="register-email">Email</label>
+                      
+                        <input name="email" id="register-email" type="email" placeholder="Email" ngModel required>
+
+                        <label for="register-password">Password</label>
+                        <input name="password" id="register-password" type="password" placeholder="Password" ngModel required>                      
+                        <input type="submit" value="Register">
+                    
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

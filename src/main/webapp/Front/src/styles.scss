@@ -1,0 +1,89 @@
+/*!
+ * AdminKit v3.0.2 (https://adminkit.io/)
+ * Copyright 2021 Paul Laros
+ * Copyright 2021 AdminKit
+ * Licensed under MIT (https://github.com/adminkit/adminkit/blob/master/LICENSE)
+ */
+
+// Variables
+@import "assets/scss/1-variables/app";
+
+// Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
+
+// Theme mixins
+@import "assets/scss/2-mixins/button";
+
+// Theme components
+@import "assets/scss/3-components/avatar";
+@import "assets/scss/3-components/buttons";
+@import "assets/scss/3-components/card";
+@import "assets/scss/3-components/chart";
+@import "assets/scss/3-components/content";
+@import "assets/scss/3-components/dropdown";
+@import "assets/scss/3-components/feather";
+@import "assets/scss/3-components/footer";
+@import "assets/scss/3-components/hamburger";
+@import "assets/scss/3-components/list-group";
+@import "assets/scss/3-components/main";
+@import "assets/scss/3-components/navbar";
+@import "assets/scss/3-components/reboot";
+@import "assets/scss/3-components/sidebar";
+@import "assets/scss/3-components/sizing";
+@import "assets/scss/3-components/stat";
+@import "assets/scss/3-components/tables";
+@import "assets/scss/3-components/type";
+@import "assets/scss/3-components/wrapper";
+@import "assets/scss/3-components/alerts";
+
+// Theme utilities
+@import "assets/scss/4-utilities/cursors";
+
+// 3rd party plugins
+@import "~jsvectormap/dist/css/jsvectormap";
+@import "~simplebar/dist/simplebar";
+@import "~flatpickr/dist/flatpickr";
+
+// 3rd party plugin styles
+@import "assets/scss/5-vendor/flatpickr";
+@import "assets/scss/5-vendor/simplebar";
+
+@import "assets/scss/6-toastr/toastr";
+
+.big {
+    height: 50px;
+    width: 50px;
+  }
+  
+.fill-red {
+    fill: red;
+}
+
+.nav-item .indicator {
+    background:#145A32;
+}
+

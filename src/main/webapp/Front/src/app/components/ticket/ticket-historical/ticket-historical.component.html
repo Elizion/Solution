@@ -1,0 +1,110 @@
+<div class="wrapper">
+    
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        
+        <app-header></app-header>
+
+
+        <main class="content">
+
+            <div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Panel</strong> Calculos </h1>
+
+					<div class="row">
+						<div class="col-12 col-lg-12 col-xxl-12 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Lista</h5>
+								</div>
+								<table class="table table-hover">
+									<thead>
+										<tr>	
+											<th class="d-none d-md-table-cell"> Folio </th>
+											<th class="d-none d-md-table-cell"> Estado </th>
+                                            <th class="d-none d-md-table-cell"> Placa </th>
+											<th class="d-none d-md-table-cell"> Tienda Codigo </th>
+                                            <th class="d-none d-md-table-cell"> Tienda </th>
+											<th class="d-none d-md-table-cell"> Material Codigo </th>
+                                            <th class="d-none d-md-table-cell"> Material </th>
+                                            <th class="d-none d-md-table-cell"> Peso </th>
+                                            <th class="d-none d-md-table-cell"> Operador </th>			
+                                            <th class="d-none d-md-table-cell"> Fecha </th>
+                                            <th class="d-none d-md-table-cell"> Validado </th>
+											<th class="d-none d-md-table-cell"></th>
+											<th class="d-none d-md-table-cell"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of tickets; let i = index" [ngClass]="item.ticketStatus != 'OCUPADO' ? 'text-danger' : '' || item.date === null ? 'text-warning' : '' || item.weigthOk === null ? 'text-warning' : '' " class="row-ticket-{{i}}"> 
+											<td class="d-none d-md-table-cell"> {{ item.folio === null ? 'No' : item.folio }} </td>
+											<td class="d-none d-md-table-cell"> {{ item.ticketStatus === null ? 'No' : item.ticketStatus }} </td>
+                                            <td class="d-none d-md-table-cell"> {{ item.badgeSmurfit === null ? 'No' : item.badgeSmurfit }} </td>
+											<td class="d-none d-md-table-cell column-bold"> {{ item.codeStore === null ? 'No' : item.codeStore }} </td>
+                                            <td class="d-none d-md-table-cell"> {{ item.nameStore === null ? 'No' : item.nameStore }} </td>
+											<td class="d-none d-md-table-cell"> {{ item.codeMaterial === null ? 'No' : item.codeMaterial }} </td>
+                                            <td class="d-none d-md-table-cell"> {{ item.nameMaterial === null ? 'No' : item.nameMaterial }} </td>
+                                            <td class="d-none d-md-table-cell column-bold"> {{ item.weigthOk === null ? 'No' : item.weigthOk }} </td>
+                                            <td class="d-none d-md-table-cell"> {{ item.operator === null ? 'No' : item.operator }} </td>
+                                            <td class="d-none d-md-table-cell column-bold"> {{ item.dateAsString === null ? 'No' : item.dateAsString }} </td>
+                                            <td class="d-none d-md-table-cell column-bold" [ngClass]="'code-status-'+i"> {{ item.codeStatus === 'SYS000' ? 'No' : 'Si' }} </td>
+											<td><button [ngClass]="'btn btn-success'" (click)='validateTicket(item, i)' ><i-feather name='check'></i-feather></button></td>
+											<td><button [ngClass]="'btn btn-warning'" (click)='revertTicket(item, i)' ><i-feather name='x'></i-feather></button></td>
+											<td><button [ngClass]="'btn btn-danger'" (click)='deletedTicket(item, i)' ><i-feather name='trash-2'></i-feather></button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+ 
+						</div>
+						<!--
+						<div class="col-12 col-lg-2 col-xxl-1 d-flex">
+							
+							<div class="card flex-fill w-100">
+
+								<div class="card-header">
+									<h5 class="card-title mb-0"> Calculo Masivo </h5>
+								</div>
+
+								<div class="card-body">
+									
+									<button type="submit" class="btn btn-sm btn-primary" (click)='calculateMassive()'> Calcular </button>
+
+								</div>
+
+							</div>							
+
+						</div>
+						-->
+					</div>
+
+				</div>
+  
+				<!-- Modal -->
+				<div class="modal fade" id="modalModifiedUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<pre>{{null | json}}</pre>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+					</div>
+				</div>
+
+        </main>
+
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

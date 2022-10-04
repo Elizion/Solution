@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+    
+    <a class="sidebar-toggle js-sidebar-toggle" id="myElement">
+        <i class="hamburger align-self-center" ></i>
+    </a>
+
+    <div class="navbar-collapse collapse">
+
+        <ul class="navbar-nav navbar-align">
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
+                    <div class="position-relative">
+                        <i-feather name="bell"></i-feather>
+                        <span class="indicator" >1</span>
+                    </div>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
+                    <div class="dropdown-menu-header">
+                        1 Nueva notificación
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-2">                                    
+                                    <i-feather class="text-danger" name="alert-circle"></i-feather>
+                                </div>
+                                <div class="col-10">
+                                    <div class="text-dark">Sincronización de api PEND</div>
+                                    <div class="text-muted small mt-1">Datos incompletos fecha 2022 julio</div>
+                                    <div class="text-muted small mt-1">Hace 30 minutos</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dropdown-menu-footer">
+                        <a href="#" class="text-muted">Ver todo</a>
+                    </div>
+                </div>
+
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
+                    <div class="position-relative">
+                        <i-feather name="message-square"></i-feather>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
+                    <div class="dropdown-menu-header">
+                        <div class="position-relative">
+                            1 Nuevo mensaje
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-2">
+                                    <img [src]="'data:image/jpg;base64,'+userModel.picture" class="avatar img-fluid rounded-circle" alt="avatar" />
+                                </div>
+                                <div class="col-10 ps-2">
+                                    <div class="text-dark"> Eli Álvarez Romero </div>
+                                    <div class="text-muted small mt-1"> Sinconización de api PEND 2022 junio </div>
+                                    <div class="text-muted small mt-1">Hace 15 minutos</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dropdown-menu-footer">
+                        <a href="#" class="text-muted">Ver todo</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" data-bs-toggle="dropdown">
+                    <i class="align-middle" data-feather="settings"></i>
+                </a>
+
+                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">                    
+                    <img [src]="'data:image/jpg;base64,'+userModel.picture"
+                         class="avatar img-fluid rounded me-1"
+                    />
+                    <span class="text-dark"> {{userModel.name}} </span>                    
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" routerLink="/account">
+                        <i-feather name="user"></i-feather>
+                        Mi Cuenta 
+                    </a>                    
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" (click)="onLogout()">
+                        <i-feather name="log-out"></i-feather>
+                         Cerrar Sesión 
+                    </a>
+                </div>
+
+            </li>
+
+        </ul>
+
+    </div>
+    
+</nav>
+
