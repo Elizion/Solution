@@ -3,10 +3,6 @@ import { UserModel } from 'src/app/model/user.model'
 import { Router } from '@angular/router'
 import * as SimpleBar from 'simplebar'
 import { ActivityModel } from 'src/app/model/activity.model'
-import { CONFIG } from "../../config/config.constants"
-import { ActivityService } from 'src/app/services/activity.service'
-import { AlertConstants } from 'src/app/config/alert.constants'
-import { AlertService } from 'src/app/services/alert.service'
 
 @Component({
 selector: 'app-header',
@@ -18,7 +14,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     userModel = new UserModel()
     activityModel = new ActivityModel()
 
-    constructor(private router: Router, private activityService: ActivityService, private alertService: AlertService,) {
+    constructor(private router: Router) {
   
     }
 
@@ -37,9 +33,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
         let title = 'Sesión'
         let message = 'Sesión cerrada'
-        let module = 'SYS100'        
-        this.generateActivity(title, message, module, this.userModel)
-        this.createActivity(this.activityModel)
+        let module = 'SYS100'
 
         window.sessionStorage.clear()
         this.router.navigate(['/login'])
@@ -83,30 +77,5 @@ export class HeaderComponent implements OnInit, AfterViewInit {
             })
         }
     }
-
-    generateActivity(title: string, message: string, module: string, userModel: UserModel) {
-    
-        let idUser = userModel.id
-        let fullNameUser = userModel.name + ' ' + userModel.lastName  
-          
-        this.activityModel.title = title
-        this.activityModel.message = message
-        this.activityModel.module = module
-        this.activityModel.idUser = idUser
-        this.activityModel.fullNameUser = fullNameUser       
-    
-      }
-      
-      createActivity(activityModel: ActivityModel) {    
-    
-        this.activityService.createActivity(activityModel).subscribe(            
-          responseData => {                     
-            console.info(JSON.stringify(responseData))
-          }, error => {               
-            this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
-          }      
-        )
-             
-      }
 
 }

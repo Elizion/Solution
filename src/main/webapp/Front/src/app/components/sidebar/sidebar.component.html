@@ -21,45 +21,14 @@
             
             <li class="sidebar-item" *ngIf="userModel.codeStatus==='SYS001'" routerLinkActive="active">
 
-                <a class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false"> 
-                    <i-feather name="users"></i-feather>
-                    Usuarios 
-                </a>
-
-                <div class="collapse" id="dashboard-collapse">
-
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" routerLink="/user/list">
-                            <i-feather name="columns"></i-feather>
-                            Listado usuario
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" routerLink="/user/created">
-                            <i-feather name="user-plus"></i-feather>
-                            Agregar usuario
-                        </a>
-                    </li>
-                    
-                  </ul>
-
-                </div>
-
-              </li>
-
-              <li class="sidebar-item" *ngIf="userModel.codeStatus==='SYS001'" routerLinkActive="active">
-
                 <a class="sidebar-link" routerLink="/store/list"> 
                     <i-feather name="shopping-cart"></i-feather>
                     Tiendas
                 </a>
 
-              </li>
+            </li>
 
-              <li class="sidebar-item" *ngIf="userModel.codeStatus==='SYS001'" routerLinkActive="active">
+            <li class="sidebar-item" *ngIf="userModel.codeStatus==='SYS001'" routerLinkActive="active">
 
                 <a class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#cenace-collapse" aria-expanded="false"> 
                     <i-feather name="folder"></i-feather>
@@ -83,6 +52,13 @@
                             Historico
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" routerLink="/ticket/calculated">
+                            <i-feather name="calendar"></i-feather>
+                            Calcular
+                        </a>
+                    </li>
                     
                   </ul>
 
@@ -91,10 +67,34 @@
             </li>
 
             <li class="sidebar-item" *ngIf="userModel.codeStatus==='SYS001'" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="/ticket/comparative"> 
-                    <i-feather name="sliders"></i-feather>
-                    Comparativa
+
+                <a class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false"> 
+                    <i-feather name="users"></i-feather>
+                    Usuarios 
                 </a>
+
+                <div class="collapse" id="dashboard-collapse">
+
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" routerLink="/user/created">
+                            <i-feather name="user-plus"></i-feather>
+                            Agregar usuario
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" routerLink="/user/list">
+                            <i-feather name="columns"></i-feather>
+                            Listado usuario
+                        </a>
+                    </li>
+                    
+                  </ul>
+
+                </div>
+
             </li>
 
         </ul>

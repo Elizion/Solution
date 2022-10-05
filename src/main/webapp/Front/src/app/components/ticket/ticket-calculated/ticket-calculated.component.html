@@ -33,8 +33,6 @@
                                             <th class="d-none d-md-table-cell"> Operador </th>			
                                             <th class="d-none d-md-table-cell"> Fecha </th>
                                             <th class="d-none d-md-table-cell"> Validado </th>
-											<th class="d-none d-md-table-cell"></th>
-											<th class="d-none d-md-table-cell"></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -50,9 +48,6 @@
                                             <td class="d-none d-md-table-cell"> {{ item.operator === null ? 'No' : item.operator }} </td>
                                             <td class="d-none d-md-table-cell column-bold"> {{ item.dateAsString === null ? 'No' : item.dateAsString }} </td>
                                             <td class="d-none d-md-table-cell column-bold" [ngClass]="'code-status-'+i"> {{ item.codeStatus === 'SYS000' ? 'No' : 'Si' }} </td>
-											<td><button [ngClass]="'btn btn-success'" (click)='validateTicket(item, i)' ><i-feather name='check'></i-feather></button></td>
-											<td><button [ngClass]="'btn btn-info'" (click)='revertTicket(item, i)' ><i-feather name='refresh-cw'></i-feather></button></td>
-											<td><button [ngClass]="'btn btn-danger'" (click)='deletedTicket(item, i)' ><i-feather name='trash-2'></i-feather></button></td>
 										</tr>
 									</tbody>
 								</table>

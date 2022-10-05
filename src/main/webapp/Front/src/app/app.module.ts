@@ -42,8 +42,8 @@ import { StoreListComponent } from './components/store/store-list/store-list.com
 
 import { TicketCreatedComponent } from './components/ticket/ticket-created/ticket-created.component'
 import { TicketCalculatedComponent } from './components/ticket/ticket-calculated/ticket-calculated.component';
-import { TicketComparativeComponent } from './components/ticket/ticket-comparative/ticket-comparative.component';
-import { TicketHistoricalComponent } from './components/ticket/ticket-historical/ticket-historical.component'
+import { TicketHistoricalComponent } from './components/ticket/ticket-historical/ticket-historical.component';
+import { ModalComponent } from './components/modal/modal.component'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,8 +65,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 	PriceListComponent,
     TicketCreatedComponent,
     TicketCalculatedComponent,
-    TicketComparativeComponent,
-    TicketHistoricalComponent
+    TicketHistoricalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

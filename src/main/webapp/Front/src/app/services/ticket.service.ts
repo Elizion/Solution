@@ -56,12 +56,26 @@ export class TicketService {
     }  
     return this.http.put<any>(environment.rooturl + ApiConstants.URI_VALIDATE_TICKET, ticketRequest, { observe: 'response' }) 
   }
+  
+  modifiedTicket(ticket : any) {
+    
+    debugger
+        
+    const ticketRequest = { 
+      "idTicket": ticket.id, 
+      "idStore": ticket.idStore, 
+      "idMaterial": ticket.idMaterial,
+      "date": ticket.date
+    }  
 
+    return this.http.put<any>(environment.rooturl + ApiConstants.URI_VALIDATE_TICKET, ticketRequest, { observe: 'response' }) 
+
+  }
+  
   deletedTicket(ticket : any) {
     let queryParams = new HttpParams()
     queryParams = queryParams.append("idTicket", ticket.id)
     return this.http.delete(environment.rooturl + ApiConstants.URI_DELETED_TICKET, { params:queryParams })  
-
   }
   
 }

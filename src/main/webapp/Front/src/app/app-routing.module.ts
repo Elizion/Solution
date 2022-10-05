@@ -10,7 +10,6 @@ import { UserCreatedComponent } from './components/user/user-created/user-create
 import { StoreListComponent } from './components/store/store-list/store-list.component'
 import { TicketCreatedComponent } from './components/ticket/ticket-created/ticket-created.component'
 import { TicketCalculatedComponent } from './components/ticket/ticket-calculated/ticket-calculated.component'
-import { TicketComparativeComponent } from './components/ticket/ticket-comparative/ticket-comparative.component'
 import { TicketHistoricalComponent } from './components/ticket/ticket-historical/ticket-historical.component'
 import { TestComponent } from './components/test/test.component'
 
@@ -26,7 +25,6 @@ const routes: Routes = [
   {path: 'ticket/created', component: TicketCreatedComponent, canActivate: [AuthActivateRouteGuard]},
   {path: 'ticket/historical', component: TicketHistoricalComponent, canActivate: [AuthActivateRouteGuard]},
   {path: 'ticket/calculated', component: TicketCalculatedComponent, canActivate: [AuthActivateRouteGuard]},
-  {path: 'ticket/comparative', component: TicketComparativeComponent, canActivate: [AuthActivateRouteGuard]},
   {path: 'test', component: TestComponent},
   {path: '**', component: NotFoundComponent}
 

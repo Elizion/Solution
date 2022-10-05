@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ligasport"
+    }
+  },
+  "defaultProject": "ligasport",
+  "cli": {
+    "analytics": "358823c4-0a02-4c19-b61f-a4faaf678b04"
+  }
 }

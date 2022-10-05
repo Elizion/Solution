@@ -13,8 +13,6 @@ import { AlertConstants } from 'src/app/config/alert.constants'
 import { TranslateService } from '@ngx-translate/core'
 import { LoginService } from 'src/app/services/login.service'
 import { SystemService } from 'src/app/services/system.service'
-import { AlertService } from 'src/app/services/alert.service'
-import { ActivityService } from 'src/app/services/activity.service'
 
 @Component({
   selector: 'app-login',
@@ -39,8 +37,6 @@ export class LoginComponent implements OnInit {
     private translate: TranslateService,
     private loginService: LoginService,
     private systemService: SystemService,
-    private activityService: ActivityService,
-    private alertService: AlertService,
     private router: Router
   ) {
       
@@ -86,46 +82,18 @@ export class LoginComponent implements OnInit {
         
         let userDetails = JSON.parse(sessionStorage.getItem('userdetails'))
         
-        this.generateActivity(title, message, module, userDetails.data)
-        this.createActivity(this.activityModel)
-
         loginForm.resetForm()
         this.router.navigate(['dashboard'])
 
       }, error => {        
 
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
         this.router.navigate(['login'])
 
       }
 
     )
 
-  }
-
-  generateActivity(title: string, message: string, module: string, userModel: UserModel) {
-    
-    let idUser = userModel.id
-    let fullNameUser = userModel.name + ' ' + userModel.lastName  
-      
-    this.activityModel.title = title
-    this.activityModel.message = message
-    this.activityModel.module = module
-    this.activityModel.idUser = idUser
-    this.activityModel.fullNameUser = fullNameUser       
-
-  }
-  
-  createActivity(activityModel: ActivityModel) {    
-
-    this.activityService.createActivity(activityModel).subscribe(            
-      responseData => {                     
-        console.info(responseData.body)
-      }, error => {               
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
-      }      
-    )
-         
   }
 
   getDateSystem(selectedTz: string): void {

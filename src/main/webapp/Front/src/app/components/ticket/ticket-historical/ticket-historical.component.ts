@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { TicketService } from 'src/app/services/ticket.service'
-import { AlertService } from 'src/app/services/alert.service'
-import { AlertConstants } from 'src/app/config/alert.constants'
 import { MaterialService } from 'src/app/services/material.service'
 
 @Component({
@@ -13,23 +11,27 @@ export class TicketHistoricalComponent implements OnInit {
 
   tickets: any
   ticket: any
+
   responseCalculated: any
   base64String: string
+  
+  selectedItem = null;
 
-  constructor(private ticketService: TicketService, private alertService: AlertService, private materialService: MaterialService) { }
+  constructor(private ticketService: TicketService, private materialService: MaterialService) { }
 
   ngOnInit(): void {
-    
+
+
     this.ticketService.getTickets().subscribe(                  
       responseData => {                     
         this.tickets = responseData.body['data']     
       }, error => {
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
       }
     )
     
   }
-  
+
   validateTicket(ticket: any, i: any): void {
 
     let codeStatus = 'SYS001'
@@ -43,11 +45,11 @@ export class TicketHistoricalComponent implements OnInit {
         document.getElementsByClassName("code-status-"+i)[0].textContent = 'Si'
         
         let response = responseData.body['data']
-        this.alertService.showNotification(response, "Success", AlertConstants.SUCCESS)
+        alert(response)
 
       }, error => {
 
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
 
       }
 
@@ -68,16 +70,45 @@ export class TicketHistoricalComponent implements OnInit {
         document.getElementsByClassName("code-status-"+i)[0].textContent = 'No'
 
         let response = responseData.body['data']
-        this.alertService.showNotification(response, "Success", AlertConstants.SUCCESS)
+        alert("Ticket invalidado correctamente.")
 
       }, error => {
 
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
 
       }
 
     )
 
+  }
+
+  modifiedTicket(ticket: any, i: any): void {
+
+    debugger
+
+    this.ticket = ticket    
+    this.selectedItem = ticket
+    /*
+    this.ticketService.modifiedTicket(ticket).subscribe(                  
+      
+      responseData => {                     
+
+        this.responseCalculated = responseData.body['data']
+        
+        this.ticketService.getTickets().subscribe(                  
+          responseData => {                     
+            this.tickets = responseData.body['data']     
+          }, error => {
+            alert(error.error.message)
+          }
+        )
+
+      }, error => {
+        alert(error.error.message)
+      }
+
+    )
+  */
   }
 
   calculatedTicket(ticket: any): void {
@@ -94,12 +125,12 @@ export class TicketHistoricalComponent implements OnInit {
           responseData => {                     
             this.tickets = responseData.body['data']     
           }, error => {
-            this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+            alert(error.error.message)
           }
         )
 
       }, error => {
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
       }
 
     )
@@ -121,7 +152,7 @@ export class TicketHistoricalComponent implements OnInit {
         document.body.appendChild(hiddenElement);
         hiddenElement.click();        
       }, error => {
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
       }
     )
   }
@@ -130,16 +161,16 @@ export class TicketHistoricalComponent implements OnInit {
     this.ticketService.calculateMassive().subscribe(              
       responseData => {               
         let reponse = responseData['data']
-        this.alertService.showNotification(reponse, "Success", AlertConstants.SUCCESS)  
+        alert(reponse)  
         this.ticketService.getTickets().subscribe(                  
           responseData => {                     
             this.tickets = responseData.body['data']     
           }, error => {
-            this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+            alert(error.error.message)
           }
         )
       }, error => {
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
       }  
     )
   }
@@ -159,11 +190,11 @@ export class TicketHistoricalComponent implements OnInit {
       responseData => {                     
     
         let response = responseData['data']
-        this.alertService.showNotification(response, "Success", AlertConstants.SUCCESS)
+        alert(response)
 
       }, error => {
 
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
 
       }
 

@@ -10,8 +10,13 @@
         <main class="content">
 
             <div class="container-fluid p-0">
+				<app-modal
+				*ngIf="selectedItem"
+				[data]="selectedItem"
+				(closeModal)="modifiedTicket(null)"
+			  ></app-modal>
 
-					<h1 class="h3 mb-3"><strong>Panel</strong> Calculos </h1>
+					<h1 class="h3 mb-3"><strong>Panel</strong> Validación de histórico</h1>
 
 					<div class="row">
 						<div class="col-12 col-lg-12 col-xxl-12 d-flex">
@@ -30,9 +35,11 @@
 											<th class="d-none d-md-table-cell"> Material Codigo </th>
                                             <th class="d-none d-md-table-cell"> Material </th>
                                             <th class="d-none d-md-table-cell"> Peso </th>
-                                            <th class="d-none d-md-table-cell"> Operador </th>			
+                                            <th class="d-none d-md-table-cell"> Operador </th>
+											<th class="d-none d-md-table-cell"> Precio </th>
                                             <th class="d-none d-md-table-cell"> Fecha </th>
                                             <th class="d-none d-md-table-cell"> Validado </th>
+											<th class="d-none d-md-table-cell"></th>
 											<th class="d-none d-md-table-cell"></th>
 											<th class="d-none d-md-table-cell"></th>
 										</tr>
@@ -48,11 +55,13 @@
                                             <td class="d-none d-md-table-cell"> {{ item.nameMaterial === null ? 'No' : item.nameMaterial }} </td>
                                             <td class="d-none d-md-table-cell column-bold"> {{ item.weigthOk === null ? 'No' : item.weigthOk }} </td>
                                             <td class="d-none d-md-table-cell"> {{ item.operator === null ? 'No' : item.operator }} </td>
+											<td class="d-none d-md-table-cell"> {{ item.operator === null ? 'No' : item.priceCalculated }} </td>
                                             <td class="d-none d-md-table-cell column-bold"> {{ item.dateAsString === null ? 'No' : item.dateAsString }} </td>
                                             <td class="d-none d-md-table-cell column-bold" [ngClass]="'code-status-'+i"> {{ item.codeStatus === 'SYS000' ? 'No' : 'Si' }} </td>
 											<td><button [ngClass]="'btn btn-success'" (click)='validateTicket(item, i)' ><i-feather name='check'></i-feather></button></td>
-											<td><button [ngClass]="'btn btn-warning'" (click)='revertTicket(item, i)' ><i-feather name='x'></i-feather></button></td>
-											<td><button [ngClass]="'btn btn-danger'" (click)='deletedTicket(item, i)' ><i-feather name='trash-2'></i-feather></button></td>
+											<td><button [ngClass]="'btn btn-primary'" (click)='revertTicket(item, i)' ><i-feather name='refresh-cw'></i-feather></button></td>
+											<td><button [ngClass]="'btn btn-info'" (click)='modifiedTicket(item, i)' ><i-feather name='edit-2'></i-feather></button></td>
+											<!--<td><button [ngClass]="'btn btn-danger'" (click)='deletedTicket(item, i)' ><i-feather name='trash-2' disabled></i-feather></button></td>-->
 										</tr>
 									</tbody>
 								</table>

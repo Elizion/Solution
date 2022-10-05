@@ -1,7 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core'
-import { ActivityService } from 'src/app/services/activity.service'
 import { AlertConstants } from 'src/app/config/alert.constants'
-import { AlertService } from 'src/app/services/alert.service'
 import { UserModel } from 'src/app/model/user.model'
 import { Authenticated } from 'src/app/model/authenticated.model'
 import { Authorized } from 'src/app/model/authorized.model'
@@ -25,7 +23,7 @@ export class AccountComponent implements OnInit, AfterViewInit {
   createdAt: moment.Moment
   currentDate: moment.Moment
 
-  constructor(private activityService: ActivityService, private alertService: AlertService) { 
+  constructor() { 
 
     let userDetails = JSON.parse(sessionStorage.getItem('userdetails'))
     this.userModel = userDetails.data as UserModel
@@ -35,31 +33,6 @@ export class AccountComponent implements OnInit, AfterViewInit {
     this.timezone = JSON.parse(sessionStorage.getItem('timezone'))
 
     this.currentDate = moment()
-
-    this.activityService.getAllActivities().subscribe(      
-  
-      responseData => {       
-
-        let listActivities = responseData.body['data']
-        this.listActivity = listActivities
-        
-        for(let i = 0; i<this.listActivity.length; i++) {
-                              
-          this.createdAt = moment(this.listActivity[i].createdAt).locale(this.locale)
-          this.listActivity[i].dateString = this.createdAt.tz(this.timezone).format('YYYY-MMMM-D hh:mm:ss')
-          console.log(this.listActivity[i].dateString)
-    
-        }
-    
-        console.log(this.listActivity)
-
-      }, error => {
-        
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
-
-      }
-
-    ) 
 
   }
 

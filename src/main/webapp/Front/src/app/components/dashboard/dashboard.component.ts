@@ -20,29 +20,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(private dashboardService: DashboardService, private alertService: AlertService) { }
     
-  
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
     this.userModel = JSON.parse(sessionStorage.getItem('userdetails'))
-    this.timezone = JSON.parse(sessionStorage.getItem('timezone'))    
-
-    for (var i = 0; i < 10; i++) {
-      
-      console.log('---------> ' + i)
-
-    }
-      
-    this.dashboardService.getApiFake().subscribe(
-        
-      responseData => {        
-        
+    this.timezone = JSON.parse(sessionStorage.getItem('timezone'))          
+    this.dashboardService.getApiFake().subscribe(        
+      responseData => {              
         this.listFake = responseData.body as []          
-
       }, error => {
-        this.alertService.showNotification(error.error.message, "Error", AlertConstants.ERROR)
+        alert(error.error.message)
       }
     )
-
   }
 
   pieChartOptions: ChartOptions = {
